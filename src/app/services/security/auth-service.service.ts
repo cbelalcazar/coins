@@ -6,7 +6,7 @@ import { AppConfigService } from '../app-config-services.service';
 export class AuthService {
   private id: string;
   private site: string;
-  public token: {access: string, expire: number, date: number, user: any, dataFilter: string, userType: any};
+  public token: any;
   private resource: string;
   private type: string;
   private domain: string;
@@ -57,16 +57,10 @@ export class AuthService {
   }
 
   setToken(token = null): void {
+    this.token = {
+      user: token
+    };
     if (token) {
-      const decode = this.decodeJwt(token.token);
-      this.token = {
-        access: 'Bearer ' + token.token,
-        expire: (parseInt('36000000000000', 10) * 1000) - 120000,
-        date: new Date().getTime(),
-        user: decode,
-        dataFilter: decode.dataFilter,
-        userType: decode.code
-      };
       localStorage.setItem('token', JSON.stringify(this.token));
     } else {
       localStorage.removeItem('token');

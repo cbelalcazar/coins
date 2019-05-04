@@ -1,0 +1,44 @@
+<body class="login">
+    <div class="user-login-5">
+        <div class="row bs-reset">
+            <div class="col-md-12 login-container bs-reset">
+                <div class="login-content">
+                        <div class="row">
+                            <div class="col-sm-2"></div>
+                            <div class="col-sm-8">
+                                <div class="card">
+                                    <img class="card-img-top mt-3" src="/assets/img/login/login-image.jpg" style="max-width: 92%; margin: 0 auto">
+                                    <div class="card-body">
+                                        <form class="login-form" [formGroup]="formGroup" novalidate="novalidate">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                <input type="text" class="form-control" placeholder="Usuario" formControlName="user" [(ngModel)]="loginData.authName" [ngClass]="{'border border-danger': validateInputs('user')}">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Contraseña</label>
+                                                <div class="form-group">
+                                                    <input type="password" class="form-control" placeholder="Password" formControlName="password" [(ngModel)]="loginData.password" [ngClass]="{'border border-danger': validateInputs('password')}">
+                                                </div>
+                                            </div>
+                                            <button type="submit" class="btn btn-primary btn-block btn-color-new" (click)="login()">Iniciar Sesión</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2"></div>
+                        </div>
+                </div>
+                <div class="login-footer">
+                    <div class="row bs-reset">
+                        <div class="col-sm-3 bs-reset"></div>
+                        <div class="col-sm-9 bs-reset">
+                            <div class="login-copyright text-right">
+                                <p>© 2018 Endava. Reservados todos los derechos. | Privacidad</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
