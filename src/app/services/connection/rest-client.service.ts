@@ -2,26 +2,25 @@
 import { Injector, Injectable } from '@angular/core';
 import { Resource, ResourceHandler } from '@ngx-resource/core';
 import { AppConfigService } from '../app-config-services.service';
-// import { AuthService } from '../security/auth.services';
+import { AuthService } from '../security/auth-service.service';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class RestClient extends Resource {
   public http: HttpClient;
   private config: AppConfigService;
-  // protected auth: AuthService;
+  protected auth: AuthService;
 
   constructor(injector: Injector) {
     super(injector.get(ResourceHandler));
     this.config = injector.get(AppConfigService);
-    // this.auth = injector.get(AuthService);
-    this.http = injector.get(HttpClient);
+    this.auth = injector.get(AuthService);
+    // this.http = injector.get(HttpClient);
   }
 
   $getHeaders(methodOptions?: any): any {
     const headers: any = super.$getHeaders(methodOptions);
-    const token = { access: '3424' };
-    // const token = this.auth.getToken();
+    const token = this.auth.getToken();
     if (token) {
       headers.Authorization = token.access;
     }
