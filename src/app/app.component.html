@@ -1,21 +1,27 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<header class="navbar navbar-expand flex-md-row sw-navbar">
+  <span class="spacer d-md-none"></span>
+  <button style="margin-top: 11px !important; margin-right: 11px; color: #0057b8" type="button" id="sidebarCollapse" class="btn btn-link d-none d-md-block">
+      <span class="oi oi-menu"></span>
+  </button>
+  <a class="navbar-brand mr-0 mr-md-2" href="/" aria-label="Swastika I/O">
+      <img src="assets/img/bussiness/horizontal.png" width="100px">
+  </a>
+  <ul class="nav-item dropdown navbar-nav flex-row ml-md-auto d-md-flex">
+      <li class="nav-item dropdown">
+          <a *ngIf="this.hide" class="nav-link dropdown-toggle" style="font-size:.9em !important" href="javascript:void(0)" id="navbardrop" data-toggle="dropdown">Usuario pruebas</a>
+          <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="assets/documents/manual.docx"><span class="oi oi-question-mark"></span> &nbsp;&nbsp;Ayuda</a>
+              <a class="dropdown-item" (click)="configMachine()" href="javascript:void(0)"><span class="oi oi-cog"></span>&nbsp;&nbsp;Configurar Máquina</a>
+              <a class="dropdown-item" (click)="logout()" href="javascript:void(0)"><span class="oi oi-power-standby"></span> &nbsp;&nbsp;Logout</a>
+          </div>
+      </li>
+  </ul>
+  <button class="btn btn-link sw-search-docs-toggle d-md-none p-0" type="button" data-toggle="collapse" data-target="#sw-docs-nav" aria-controls="sw-docs-nav" aria-expanded="false" aria-label="Toggle docs navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30" height="30" focusable="false">
+          <title>Menu</title>
+          <path stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-miterlimit="10" d="M4 7h22M4 15h22M4 23h22"></path>
+      </svg>
+  </button>
+</header>
 
 <router-outlet></router-outlet>
