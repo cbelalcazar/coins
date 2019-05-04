@@ -1,3 +1,5 @@
+<nav class="navbar" style="background-color:#db411b">
+  </nav>
 <header class="navbar navbar-expand flex-md-row sw-navbar">
   <span class="spacer d-md-none"></span>
   <button style="margin-top: 11px !important; margin-right: 11px; color: #0057b8" type="button" id="sidebarCollapse" class="btn btn-link d-none d-md-block">
@@ -10,8 +12,6 @@
       <li class="nav-item dropdown">
           <a *ngIf="this.hide" class="nav-link dropdown-toggle" style="font-size:.9em !important" href="javascript:void(0)" id="navbardrop" data-toggle="dropdown">Usuario pruebas</a>
           <div class="dropdown-menu dropdown-menu-right">
-              <a class="dropdown-item" href="assets/documents/manual.docx"><span class="oi oi-question-mark"></span> &nbsp;&nbsp;Ayuda</a>
-              <a class="dropdown-item" (click)="configMachine()" href="javascript:void(0)"><span class="oi oi-cog"></span>&nbsp;&nbsp;Configurar Máquina</a>
               <a class="dropdown-item" (click)="logout()" href="javascript:void(0)"><span class="oi oi-power-standby"></span> &nbsp;&nbsp;Logout</a>
           </div>
       </li>
@@ -23,5 +23,9 @@
       </svg>
   </button>
 </header>
+<div class="container-fluid wrapper">  
+  <main class="sw-content">
+    <router-outlet></router-outlet>
+  </main>
+</div>
 
-<router-outlet></router-outlet>
