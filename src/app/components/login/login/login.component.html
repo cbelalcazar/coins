@@ -12,15 +12,15 @@
                                         <form class="login-form" [formGroup]="formGroup" novalidate="novalidate">
                                             <div class="form-group">
                                                 <label>Email</label>
-                                                <input type="text" class="form-control" placeholder="Usuario" formControlName="user" [(ngModel)]="loginData.authName" [ngClass]="{'border border-danger': validateInputs('user')}">
+                                                <input type="number" class="form-control" placeholder="Usuario" formControlName="user" [(ngModel)]="loginData.authName" [ngClass]="{'border border-danger': validateInputs('user')}">
                                             </div>
                                             <div class="form-group">
-                                                <label>Contraseña</label>
+                                                <label>Password</label>
                                                 <div class="form-group">
                                                     <input type="password" class="form-control" placeholder="Password" formControlName="password" [(ngModel)]="loginData.password" [ngClass]="{'border border-danger': validateInputs('password')}">
                                                 </div>
                                             </div>
-                                            <button type="submit" class="btn btn-primary btn-block btn-color-new" (click)="login()">Iniciar Sesión</button>
+                                            <button type="submit" class="btn btn-primary btn-block btn-color-new" (click)="login()">Log in </button>
                                         </form>
                                     </div>
                                 </div>
@@ -33,7 +33,7 @@
                         <div class="col-sm-3 bs-reset"></div>
                         <div class="col-sm-9 bs-reset">
                             <div class="login-copyright text-right">
-                                <p>© 2018 Endava. Reservados todos los derechos. | Privacidad</p>
+                                <p>© 2018 Endava. All rights reserved | Privacity</p>
                             </div>
                         </div>
                     </div>

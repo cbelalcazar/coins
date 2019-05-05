@@ -1,3 +1,42 @@
-<p>
-  transfers works!
-</p>
+<div class="container-fluid">
+    <h1 class="display-5">Transfers</h1>
+    <hr>
+    <div class="row">
+      <div class="col-sm-12">
+          <div>
+              <button class="btn btn-info btn-sm float-right mb-2" (click)="router.navigate(['main'])">Return</button>
+          </div>
+      </div>
+    </div>
+    <p style="font-size: 1.6rem;">Hello <strong>{{authService.token ? authService.token.name + ' ' + authService.token.lastName : ''}}</strong>  welcome to transfers, your balance of Endava Coins is: <strong>{{accountInformation.balance}}</strong></p>
+    <hr>
+    
+    <div class="card">
+      <div class="card-body">
+          <form class="login-form" [formGroup]="formGroup" novalidate="novalidate">
+              <div class="form-group">
+                  <label>Select person</label>
+                  <select formControlName="person" [(ngModel)]="objectToSend.person" class="form-control form-control-sm"  [ngClass]="{'border border-danger': validateInputs('person')}">
+                    <option></option>
+                    <option *ngFor="let person of persons" [value]="person.personId">
+                      {{person.name}} {{person.lastName}}
+                    </option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Enter amount of endava coins to send</label>
+                  <input type="number" formControlName="value" [(ngModel)]="objectToSend.value" class="form-control form-control-sm"  [ngClass]="{'border border-danger': validateInputs('value')}">
+                </div>
+                <div class="form-group">
+                  <label>
+                      Enter a justification for this transfer of Endava Coins to your co-worker</label>
+                    <textarea formControlName="description" [(ngModel)]="objectToSend.description" class="form-control form-control-sm"  [ngClass]="{'border border-danger': validateInputs('description')}" cols="30" rows="3"></textarea>
+                </div>
+          </form>       
+        <hr>
+        <div>
+          <button class="btn btn-success float-right" (click)="transfer()">Transferir</button>
+        </div>
+      </div>
+    </div>
+ </div>

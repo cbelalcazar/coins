@@ -14,11 +14,11 @@ export class ProductsRepositoryService extends RestClient {
     super(injector);
   }
 
-  // @ResourceAction({
-  //   method: ResourceRequestMethod.Post,
-  //   path: '/'
-  // })
-  // create: IResourceMethod<any, any>;
+  @ResourceAction({
+    method: ResourceRequestMethod.Get,
+    path: '/person/{id}'
+  })
+  person: IResourceMethod<any, any>;
 
   @ResourceAction({
     method: ResourceRequestMethod.Get,
@@ -31,6 +31,24 @@ export class ProductsRepositoryService extends RestClient {
     path: 'registerTransaction'
   })
   registerTransaction: IResourceMethod<any, any>;
+
+  @ResourceAction({
+    method: ResourceRequestMethod.Get,
+    path: 'personalAccountInfo/{id}'
+  })
+  personalAccountInfo: IResourceMethod<any, any>;
+
+  @ResourceAction({
+    method: ResourceRequestMethod.Get,
+    path: 'transactions/{id}'
+  })
+  transactions: IResourceMethod<any, any>;
+
+  @ResourceAction({
+    method: ResourceRequestMethod.Get,
+    path: 'persons/{id}'
+  })
+  persons: IResourceMethod<any, any>;
 
   // @ResourceAction({
   //   method: ResourceRequestMethod.Put,

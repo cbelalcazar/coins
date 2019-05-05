@@ -57,9 +57,7 @@ export class AuthService {
   }
 
   setToken(token = null): void {
-    this.token = {
-      user: token
-    };
+    this.token = token;
     if (!token) {
       this.token = null;
     }

@@ -52,15 +52,18 @@ export class RedeemPrizesComponent implements OnInit {
 
   redeem(product) {
     const object = {
-      userFromId: parseInt(this.authService.token.user, 10),
+      userFromId: parseInt(this.authService.token.personId, 10),
       userToId: 12,
       amount: product.value,
       interactionId: 4,
       description: 'Redeem'
     }
     this.productsRepositoryService.registerTransaction(object)
-    .then(() => alert('Transaction successfully executed'))
-    .catch(() => alert('Error please contact the system administrator'))
+    .then(() => {
+      alert('Transaction successfully executed');
+      this.router.navigate(['/main']);
+    })
+    .catch((error) => error.body.message);
   }
 
 }
