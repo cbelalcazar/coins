@@ -7,7 +7,7 @@ export class AppConfigService {
 
   constructor(private http: HttpClient) {
     this.config = {
-      host: 'http://localhost:8081',
+      host: 'http://192.168.70.226:8081',
       authSite: '',
       authId: '9f97f30d-89ac-4112-b086-05a415ae31e0',
       authType: 'token',

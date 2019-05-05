@@ -1,5 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import * as _ from 'lodash';
+import { ProductsRepositoryService } from 'src/app/services/products/products-repository.service';
+import { AuthService } from 'src/app/services/security/auth-service.service';
+
+
+
 
 
 @Component({
@@ -9,16 +15,52 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class RedeemPrizesComponent implements OnInit {
   public products: any;
+  public originalProducts: any;
+  public productTypes: any;
+  public objectFilters: string;
+  public search: string;
+
   constructor(
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
+    public router: Router,
+    private productsRepositoryService: ProductsRepositoryService,
+    private authService: AuthService
   ) {
     this.products = [];
+    this.productTypes = [];
+    this.objectFilters = '';
+    this.search = '';
   }
 
   ngOnInit() {
     this.products = this.activatedRoute.snapshot.data.products;
-    console.log(this.products);
-    
+    this.originalProducts = this.products;
+    this.productTypes = Object.keys(_.groupBy(this.products, product => product.type));
+  }
+
+  filterObject() {
+    setTimeout(() => {
+      this.products = this.originalProducts.filter((obj) => obj.type === this.objectFilters);
+    }, 200);
+  }
+
+  keyFilter() {
+    setTimeout(() => {
+      this.products = this.originalProducts.filter((obj) => obj.name.toUpperCase().includes(this.search.toUpperCase()));
+    }, 200);
+  }
+
+  redeem(product) {
+    const object = {
+      userFromId: parseInt(this.authService.token.user, 10),
+      userToId: 12,
+      amount: product.value,
+      interactionId: 4,
+      description: 'Redeem'
+    }
+    this.productsRepositoryService.registerTransaction(object)
+    .then(() => alert('Transaction successfully executed'))
+    .catch(() => alert('Error please contact the system administrator'))
   }
 
 }

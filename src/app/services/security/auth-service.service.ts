@@ -60,12 +60,15 @@ export class AuthService {
     this.token = {
       user: token
     };
-    if (token) {
-      localStorage.setItem('token', JSON.stringify(this.token));
-    } else {
-      localStorage.removeItem('token');
+    if (!token) {
       this.token = null;
     }
+    // if (token) {
+    //   sessionStorage.setItem('user', JSON.stringify(this.token));
+    // } else {
+    //   sessionStorage.removeItem('user');
+    //   this.token = null;
+    // }
   }
 
   checkLogin(fragment = null): boolean {

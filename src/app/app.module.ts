@@ -13,7 +13,9 @@ import { RedeemPrizesComponent } from './components/redeem-prizes/redeem-prizes.
 import { CheckBalanceComponent } from './components/check-balance/check-balance.component';
 import { TransfersComponent } from './components/transfers/transfers.component';
 import { FinanceFoundsComponent } from './components/finance-founds/finance-founds.component';
-import { RedeemPrizesResolverService } from './resolvers/redeem-prizes-resolver.service';
+import { ProductsRepositoryService } from './services/products/products-repository.service';
+import { ResourceModule } from '@ngx-resource/handler-ngx-http';
+
 
 @NgModule({
   declarations: [
@@ -30,11 +32,13 @@ import { RedeemPrizesResolverService } from './resolvers/redeem-prizes-resolver.
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ResourceModule.forRoot()
   ],
   providers: [
     AuthService,
-    AppConfigService
+    AppConfigService,
+    ProductsRepositoryService
   ],
   bootstrap: [AppComponent]
 })

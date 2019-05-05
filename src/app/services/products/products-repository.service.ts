@@ -5,30 +5,36 @@ import { RestClient } from '../connection/rest-client.service';
 
 @Injectable()
 @ResourceParams({
-  pathPrefix: '/main/path'
+  pathPrefix: '/'
 })
-export class WorkDirectiveRepository extends RestClient {
+export class ProductsRepositoryService extends RestClient {
   constructor(
     injector: Injector
   ) {
     super(injector);
   }
 
-  @ResourceAction({
-    method: ResourceRequestMethod.Post,
-    path: '/'
-  })
-  create: IResourceMethod<any, any>;
+  // @ResourceAction({
+  //   method: ResourceRequestMethod.Post,
+  //   path: '/'
+  // })
+  // create: IResourceMethod<any, any>;
 
   @ResourceAction({
     method: ResourceRequestMethod.Get,
-    path: '/{id}'
+    path: 'products'
   })
   get: IResourceMethod<any, any>;
 
   @ResourceAction({
-    method: ResourceRequestMethod.Put,
-    path: '/{id}'
+    method: ResourceRequestMethod.Post,
+    path: 'registerTransaction'
   })
-  update: IResourceMethod<any, any>;
+  registerTransaction: IResourceMethod<any, any>;
+
+  // @ResourceAction({
+  //   method: ResourceRequestMethod.Put,
+  //   path: '/{id}'
+  // })
+  // update: IResourceMethod<any, any>;
 }

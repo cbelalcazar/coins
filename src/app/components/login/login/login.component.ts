@@ -34,8 +34,6 @@ export class LoginComponent implements OnInit {
   }
 
   redirectWithValidation(token) {
-    console.log('soy token despues de entrar ', token);
-    
     if (token) {
       this.router.navigate(['/main']);
     }

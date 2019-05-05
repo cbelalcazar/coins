@@ -19,12 +19,12 @@ export class RestClient extends Resource {
   }
 
   $getHeaders(methodOptions?: any): any {
-    const headers: any = super.$getHeaders(methodOptions);
-    const token = this.auth.getToken();
-    if (token) {
-      headers.Authorization = token.access;
-    }
-    return headers;
+    // const headers: any = super.$getHeaders(methodOptions);
+    // const token = this.auth.getToken();
+    // if (token) {
+    //   headers.Authorization = token.access;
+    // }
+    // return headers;
   }
 
   $getUrl(methodOptions?: any): string | Promise<string> {
