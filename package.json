@@ -19,6 +19,7 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@ng-bootstrap/ng-bootstrap": "^4.1.2",
     "@ngx-resource/core": "^5.4.4",
     "@ngx-resource/handler-ngx-http": "^6.0.2",
     "bootstrap": "^4.3.1",

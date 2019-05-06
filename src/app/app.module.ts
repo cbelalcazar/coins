@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -33,6 +35,9 @@ import { ResourceModule } from '@ngx-resource/handler-ngx-http';
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    NgbModule,
+    NgbPaginationModule,
+    NgbAlertModule,
     ResourceModule.forRoot()
   ],
   providers: [

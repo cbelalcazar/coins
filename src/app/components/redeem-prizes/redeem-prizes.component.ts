@@ -56,14 +56,14 @@ export class RedeemPrizesComponent implements OnInit {
       userToId: 12,
       amount: product.value,
       interactionId: 4,
-      description: 'Redeem'
+      description: product.description
     }
     this.productsRepositoryService.registerTransaction(object)
     .then(() => {
       alert('Transaction successfully executed');
       this.router.navigate(['/main']);
     })
-    .catch((error) => error.body.message);
+    .catch((error) => alert(error.body.message));
   }
 
 }

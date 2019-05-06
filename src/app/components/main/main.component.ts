@@ -15,4 +15,7 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {}
 
+  goOut() {
+    location.reload();
+  }
 }

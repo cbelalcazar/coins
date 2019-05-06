@@ -75,7 +75,7 @@ export class TransfersComponent implements OnInit {
         alert('Transaction successfully executed');
         this.router.navigate(['/main']);
       })
-      .catch((error) => error.body.message);
+      .catch((error) => alert(error.body.message));
     } else {
       const controls = this.formGroup.controls;
       for (const name in controls) {
